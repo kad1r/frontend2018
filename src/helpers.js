@@ -9,3 +9,11 @@ export function getFormattedDiffTime(arrivalTime, departureTime) {
 
   return `${hours} saat ${minutes} dakika`
 }
+
+export function getFormattedHourAndMinuteText(minute) {
+
+  let hours = Math.floor(minute/60)
+  let minutes =  minute % 60
+
+  return `${hours} Saat ${minutes} Dakika`
+}

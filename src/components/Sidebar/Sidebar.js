@@ -3,12 +3,58 @@ import {Content} from '../Content'
 import Checkbox from '../Checkbox'
 import RangeSlider from '../RangeSlider'
 import './sidebar.scss'
+import {getFormattedHourAndMinuteText} from "../../helpers";
 
 const checkboxData = {
     transfer: [
         {
-            id:'',
-            value:'',
+            id:'aktarmasiz',
+            value:'Aktarmasız',
+            isChecked: true
+        },
+        {
+            id:'1aktarma',
+            value:'1 Aktarma',
+            isChecked: false
+        },
+        {
+            id:'2aktarma',
+            value:'2+ Aktarma',
+            isChecked: false
+        }
+    ],
+    class: [
+        {
+            id:'ekonomi',
+            value:'Ekonomi',
+            isChecked: true
+        },
+        {
+            id:'business',
+            value:'Business',
+            isChecked: false
+        },
+        {
+            id:'kurumsal',
+            value:'Kurumsal',
+            isChecked: false
+        }
+
+    ],
+    company : [
+        {
+            id:'turkishAirlines',
+            value:'Turkish Airlines',
+            isChecked: true
+        },
+        {
+            id:'pegasusAirlines',
+            value:'Pegasus Airlines',
+            isChecked: false
+        },
+        {
+            id:'borajet',
+            value:'Borajet',
             isChecked: false
         }
     ]
@@ -16,8 +62,12 @@ const checkboxData = {
 
 class Sidebar extends React.Component {
     state = {
-        isChecked: true,
-        range: 120,
+        price: 120,
+        time: 75,
+        transfer:checkboxData.transfer,
+        company:checkboxData.company,
+        class:checkboxData.class,
+
     }
 
     constructor(props) {
@@ -27,26 +77,37 @@ class Sidebar extends React.Component {
         this.onRangeChange = this.onRangeChange.bind(this)
     }
 
-    onChangeCheckboxState(id) {
-        this.setState({
-            transfer: {
-                ...this.state.transfer,
-                [id]: this.state.transfer[id] ? !this.state.transfer[id] : true
-            }
+    onChangeCheckboxState(id, dataName) {
+        //We need to use clonedeep or like clonedeep function for immutable object. This is only example.
+        let newState = {...this.state}
+
+        newState[dataName][id]["isChecked"] = !this.state[dataName][id]["isChecked"]
+
+        this.setState(state=> {
+            return newState
+        })
+
+
+    }
+
+    onRangeChange(value,data) {
+        let newState = {...this.state}
+
+        newState[data] = value
+
+        this.setState(state=> {
+            return newState
         })
     }
 
-    onRangeChange(e) {
-        this.setState({range: e.target.value})
-    }
-
-    getCheckboxes(data){
-        return data.map((checkbox)=> {
+    getCheckboxes(data, dataName){
+        return data.map((checkbox, i)=> {
             return <Checkbox
-                id={'aktarmasiz'}
-                value="Sadece Aktarmasız"
-                checked={this.state.transfer['aktarmasiz']}
-                onChangeCheckboxState={e => this.onChangeCheckboxState(e.target.id)}
+                key={checkbox.id}
+                id={checkbox.id}
+                value={checkbox.value}
+                checked={this.state[dataName][i]["isChecked"]}
+                onChangeCheckboxState={()=>this.onChangeCheckboxState(i,dataName)}
             />
         })
     }
@@ -64,7 +125,7 @@ class Sidebar extends React.Component {
                                 </Content.Action>
                             </Content.Header>
 
-                            {}
+                            {this.getCheckboxes(checkboxData.transfer,'transfer')}
 
                         </Content.Container>
                         <Content.Separator/>
@@ -80,24 +141,9 @@ class Sidebar extends React.Component {
                                 </Content.Action>
                             </Content.Header>
 
-                            <Checkbox
-                                id={'ekonomi'}
-                                value="Ekonomi"
-                                checked={this.state.isChecked}
-                                onChangeCheckboxState={this.onChangeCheckboxState}
-                            />
-                            <Checkbox
-                                id={'bussines'}
-                                value="Bussines"
-                                checked={this.state.isChecked}
-                                onChangeCheckboxState={this.onChangeCheckboxState}
-                            />
-                            <Checkbox
-                                id={'kurumsal'}
-                                value="Kurumsal"
-                                checked={this.state.isChecked}
-                                onChangeCheckboxState={this.onChangeCheckboxState}
-                            />
+                            {this.getCheckboxes(checkboxData.class,'class')}
+
+
                         </Content.Container>
                         <Content.Separator/>
                     </React.Fragment>
@@ -107,7 +153,7 @@ class Sidebar extends React.Component {
                             <Content.Header start={true}>
                                 <Content.Title
                                     type="sidebar"
-                                    info={`${this.state.range} TL`}
+                                    info={`${this.state.price} TL`}
                                     text="Max Fiyat"
                                     uppercase={true}
                                 />
@@ -116,8 +162,8 @@ class Sidebar extends React.Component {
                             <RangeSlider
                                 min={1}
                                 max={260}
-                                value={this.state.range}
-                                onRangeChange={this.onRangeChange}
+                                value={this.state.price}
+                                onRangeChange={(e)=>this.onRangeChange(e.target.value,'price')}
                             />
                         </Content.Container>
                         <Content.Separator/>
@@ -128,7 +174,7 @@ class Sidebar extends React.Component {
                             <Content.Header start={true}>
                                 <Content.Title
                                     type="sidebar"
-                                    info={`${this.state.range} DAKİKA`}
+                                    info={getFormattedHourAndMinuteText(this.state.time)}
                                     text="Max Uçuş Süresi"
                                     uppercase={true}
                                 />
@@ -137,8 +183,8 @@ class Sidebar extends React.Component {
                             <RangeSlider
                                 min={1}
                                 max={260}
-                                value={this.state.range}
-                                onRangeChange={this.onRangeChange}
+                                value={this.state.time}
+                                onRangeChange={(e)=>this.onRangeChange(e.target.value,'time')}
                             />
                         </Content.Container>
                         <Content.Separator/>
@@ -158,24 +204,8 @@ class Sidebar extends React.Component {
                                 </Content.Action>
                             </Content.Header>
 
-                            <Checkbox
-                                id={'turkishAirlines'}
-                                value="Turkish Airlines"
-                                checked={this.state.isChecked}
-                                onChangeCheckboxState={this.onChangeCheckboxState}
-                            />
-                            <Checkbox
-                                id={'pegasusAirlines'}
-                                value="Pegasus Airlines"
-                                checked={this.state.isChecked}
-                                onChangeCheckboxState={this.onChangeCheckboxState}
-                            />
-                            <Checkbox
-                                id={'borajet'}
-                                value="Borajet"
-                                checked={this.state.isChecked}
-                                onChangeCheckboxState={this.onChangeCheckboxState}
-                            />
+                            {this.getCheckboxes(checkboxData.company,'company')}
+
                         </Content.Container>
                         <Content.Separator/>
                     </React.Fragment>

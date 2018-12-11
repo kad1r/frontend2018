@@ -21,6 +21,5 @@
 - classnames (Koşullu className'ler elde etmek için kullanıldı.)
 
 
-
 Teşekkürler,
 Emre KAÇAN
