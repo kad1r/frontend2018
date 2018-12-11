@@ -1,0 +1,78 @@
+@import './variables.scss';
+
+@media only screen and (max-width: 768px) {
+  .content {
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+  .table-data {
+    background: #FFFFFF;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.23);
+    margin-bottom: 25px;
+  }
+  .order-4 {
+    padding: 0 !important;
+
+  }
+  .cell-content {
+
+    padding-left:27px;
+    img {
+      max-width: 84px;
+    }
+
+    .flight-transfer-text {
+      line-height: 19px
+    }
+
+    .flight-price-section-box {
+      padding: 21px 19px 27px 27px !important;
+    }
+  }
+  .after-icon:after {
+    top:14%;
+    left:79%;
+  }
+  .flight-departure-and-arrival-section {
+    padding-top:0px;
+  }
+  .container {
+    padding-left:20px;
+    padding-right:20px;
+  }
+  .brand {
+    background: $gray-500 !important;
+  }
+  .search-area {
+    background: transparent !important;
+  }
+
+  .sm-xs-invisible {
+    display:none;
+  }
+  .search-flight {
+    background: transparent;
+  }
+  .dropdown {
+    .filter-dropdown {
+      width:100%;
+      padding:10px 5px;
+    }
+    .dropdown-toggle::after {
+      position: absolute;
+      right: 14px;
+      top: 47%;
+    }
+    .filter-button-text {
+      margin-left: 14px;
+      text-align: left;
+      float: left;
+    }
+  }
+  .filter-section {
+    margin-bottom:20px;
+  }
+  .xm-xs-flex-fill {
+    flex: 1 1 auto !important;
+  }
+}

@@ -1,0 +1,13 @@
+@import '../../../styles/variables.scss';
+
+.action-common {
+  cursor:pointer;
+}
+
+.action-select-all {
+  font-family: SFUIText-Semibold, serif;
+  font-size: 11px;
+  color: $gray-300;
+  letter-spacing: 0;
+  text-decoration: underline;
+}

@@ -1,0 +1,97 @@
+@import '../../styles/variables.scss';
+
+//Button common styles
+.button-common {
+  min-width: 55px;
+  height: 34px;
+  border-radius: 2px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  cursor: pointer;
+  outline: none;
+  margin: 5px;
+  font-family: SFUIText-Medium;
+  font-size: 14px;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  padding-left: 17px;
+  padding-right: 17px;
+  img {
+    width: 16px;
+    height: 16px;
+  }
+  border-width: 0 !important;
+
+  &:focus,&:active {
+    outline: none !important;
+    box-shadow: none;
+  }
+}
+
+//Red button
+.button-red {
+  color: #ffffff;
+  background-color: $primary-color;
+  &:hover, &:focus {
+    color: #ffffff;
+    background-color: #F94D3B;
+  }
+  &:active {
+    background-color: #c8471f;
+  }
+  &.button-red-disabled {
+    color: #9e9e9e;
+    background-color: #eeeeee;
+  }
+  &.button-red-loading {
+    background-color: #fa5927;
+  }
+}
+
+//Blue button
+.button-blue {
+  color: #ffffff;
+  background-color: $secondary-color-dark;
+  &:hover, &:focus {
+    color: #ffffff;
+    background-color:  $secondary-color;
+  }
+  &:active {
+    background-color: $secondary-color;
+    outline: 0;
+  }
+  &.button-blue-disabled {
+    color: #9e9e9e;
+    background-color: #eeeeee;
+  }
+  &.button-blue-loading {
+    background-color: $secondary-color;
+  }
+}
+
+//Light Blue button
+.button-light-blue {
+  color: #ffffff;
+  background-color: $secondary-color;
+  &:hover, &:focus {
+    color: #ffffff;
+    background-color:  $secondary-color-light;
+  }
+  &:active {
+    background-color: $secondary-color-light;
+    outline: 0;
+  }
+  &.button-light-blue-disabled {
+    color: #9e9e9e;
+    background-color: #eeeeee;
+  }
+  &.button-light-blue-loading {
+    background-color: $secondary-color-light;
+  }
+}
+
+.button-big {
+  padding-left: 33px;
+  padding-right: 33px;
+}

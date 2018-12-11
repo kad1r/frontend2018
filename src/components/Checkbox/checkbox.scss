@@ -1,0 +1,58 @@
+@import '../../styles/variables.scss';
+
+.checkbox {
+  cursor:pointer;
+
+  label:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+  .checkbox-label {
+    cursor:pointer;
+
+  }
+  .checkbox-area {
+    position: relative;
+    display: inline-block;
+    border-radius: 2px;
+    box-shadow: inset 0 0 0 1px $gray-200;
+    width: 16px;
+    height:16px;
+    margin-right:9px;
+    cursor:pointer;
+
+    svg {
+      overflow: hidden;
+      position: absolute;
+      vertical-align: middle;
+      top: 33%;
+      left: 16%;
+    }
+  }
+  label input[type="checkbox"] {
+    display: none;
+  }
+  .checkbox-area .checkbox-area-icon {
+    transform: scale(3) rotateZ(-20deg);
+    opacity: 0;
+    transition: all .3s ease-in;
+  }
+}
+
+.checkbox .checkbox-area .checkbox-area-icon {
+  position: absolute;
+  width:16px;
+  height: 16px;
+  border-radius: 2px;
+}
+
+.checkbox-checked .checkbox-area .checkbox-area-icon {
+  transform: scale(1) rotateZ(0deg);
+  background-color: red;
+  opacity: 1;
+}
+
+.checkbox-disabled + .checkbox-area {
+  opacity: .5;
+}

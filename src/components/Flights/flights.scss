@@ -1,0 +1,96 @@
+@import '../../styles/variables.scss';
+
+.table-header-text {
+  font-family: SFUIText-Semibold;
+  font-size: 11px;
+  color: #888D99;
+  letter-spacing: 0;
+}
+
+.table-body-text {
+  font-family: SFUIText-Regular;
+  font-size: 11px;
+  color: #888D99;
+  letter-spacing: 0;
+
+}
+
+.table-header-text, .cell-content {
+  padding: 23px 14px;
+
+}
+
+.after-icon {
+  position: relative;
+}
+
+.after-icon:after {
+  content: '';
+  position: absolute;
+  background-image: url("../../assets/svg/plane.svg");
+  width: 15px;
+  height: 15px;
+  left: 69%;
+  top: 34%;
+}
+
+.flight-time-text {
+  font-family: SFUIText-Semibold;
+  font-size: 18px;
+  color: #3F4146;
+  letter-spacing: 0;
+}
+
+.flight-airport-title-info-text {
+  font-family: SFUIText-Regular;
+  font-size: 11px;
+  color: $gray-400;
+  letter-spacing: 0;
+}
+
+.flight-transfer-text {
+  font-family: SFUIText-Semibold;
+  font-size: 16px;
+  color: #3F4146;
+  letter-spacing: 0;
+}
+
+.flight-company-list-text {
+  font-family: SFUIText-Regular;
+  font-size: 11px;
+  color: #888D99;
+  letter-spacing: 0;
+}
+
+.flight-price-section-box {
+  width: 100%;
+  height: 64px;
+  background-color: #F6F7F9;
+  padding: 14px 16px;
+  border-radius: 2px;
+}
+
+.flight-price-section-price-text {
+  font-family: SFUIText-Semibold;
+  font-size: 20px;
+  color: #36383C;
+  letter-spacing: 0;
+}
+
+.flights-header {
+  border-bottom: 1px solid $border-color;
+}
+
+.box-fix {
+  padding-left: 35px !important;
+}
+
+.content .row {
+  margin-left:0;
+  margin-right: 0;
+}
+
+.table-data {
+  border-bottom: 1px solid $border-color
+
+}

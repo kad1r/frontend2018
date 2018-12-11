@@ -1,0 +1,11 @@
+@import '../../styles/variables.scss';
+
+.menu-item {
+  margin-left:35px;
+  font-family: "SF Display", serif;
+  font-size:16px;
+  color: $gray-400;
+}
+.menu-item-icon {
+  margin-right:10px;
+}

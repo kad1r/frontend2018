@@ -1,0 +1,16 @@
+@import '../../../styles/variables.scss';
+
+.title-common{
+  font-family: "SFUIText-Semibold", serif;
+}
+
+.title-sidebar{
+  font-size: 11px;
+  color: #575B62;
+  letter-spacing: 0;
+}
+
+.title-info {
+  color: $primary-color;
+  margin-left: 5px;
+}

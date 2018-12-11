@@ -1,0 +1,19 @@
+@import '../../styles/variables.scss';
+
+.search-flight {
+  background-color: $primary-color;
+  padding: 23px 0;
+
+  .search-area {
+    background: #FFFFFF;
+    border-radius: 2px;
+  }
+  .flight-option-button {
+    margin-left:17px;
+    margin-right:17px;
+  }
+}
+
+.search-flight-brand {
+  background: transparent;
+}

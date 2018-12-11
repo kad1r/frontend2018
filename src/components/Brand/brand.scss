@@ -1,0 +1,15 @@
+@import '../../styles/variables.scss';
+
+.brand {
+  width: 100%;
+  height:200px;
+  margin-top:63px;
+  background: $gray-500 url("../../assets/svg/brand-plane.svg") no-repeat;
+}
+.brand-text {
+  font-family: SFUIDisplay-Semibold;
+  font-size: 24px;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  margin-bottom:16px;
+}
