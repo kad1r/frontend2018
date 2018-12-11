@@ -5,7 +5,7 @@
 - Proje'de framework olarak React kullanılmıştır. Tasarımda belirlenen componentler React üzerinde mümkün mertebe re-usable olarak kodlanmıştır. Tasarımdaki komponentler birçok parçaya ayrılmış ve tekrar tekrar kullanılmıştır.
 - Projenin ilerleyen saflarda geliştirilme kolaylığı için mümkün mertebe ayarlanmaya çalışıldı. (seperation of concerns)
 - Projedeki her komponenet tamamlanmamıştır örnek olması açısından bazı komponentler ve özellikler implemente edilmiştir.
-- Projedeki ikonlar örnektir. Eğer eklenmesi istenilirse eklenecektir.
+- Projedeki ikonlar, defaultprops'lar ve prop-typeslar örnektir. Eğer eklenmesi istenilirse eklenecektir.
 
 ## Komutlar
 
