@@ -9,7 +9,7 @@
 ## Komutlar
 
 - Projeyi **npm install** ve sonrasında **npm start** diyerek çalıştırabilirsiniz.
-- Prettier'ı kullanmak için **npm run fixAll** komutunu çalıştırabilirsiniz.
+- Prettier'ı kullanmak için **npm run fixAllErrors** komutunu çalıştırabilirsiniz.
 
 ## Kullanılan Teknolojiler
 
